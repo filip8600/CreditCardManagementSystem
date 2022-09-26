@@ -1,11 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CreditCard } from './credit-card.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransactionService {
+  rootUrl = `http://localhost:3000/transactions`
 
-  constructor() { }
+
+  constructor(private http: HttpClient) { }
+  getTransactions(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`${this.rootUrl}`)
+  }
 }
 
 export interface Transaction {
@@ -25,13 +33,3 @@ export const CURRENCIES = [
   'NAD',
   'USD',
 ]
-
-export interface CreditCard {
-  card_number: number
-  csc_code: number
-  cardholder_name: string
-  expiration_date_month: number
-  expiration_date_year: number
-  uid?: string
-  issuer: string
-}

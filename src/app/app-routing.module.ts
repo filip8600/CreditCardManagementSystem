@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './AppModuleComponents/home/home.component';
-import { CreditCardAddComponent } from './Standalone Components/credit-card-add/credit-card-add.component';
-import { TransactionListComponent } from './Standalone Components/transaction-list/transaction-list.component';
+import { TransactionOverviewComponent } from './Modules/transaction/transaction-overview/transaction-overview.component';
+
 
 const routes: Routes = [{
     path: '',
@@ -17,7 +17,7 @@ loadComponent:
     ).then(mod => mod.CreditCardAddComponent)
 },{
   path: 'transactions',
-  component: TransactionListComponent,
+  component: TransactionOverviewComponent,
   }]
 ;
 
