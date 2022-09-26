@@ -1,0 +1,12 @@
+#wrapper {
+  display: grid;
+  grid-template-rows:50px 1fr;
+}
+#nav {
+  grid-column: 1;
+  grid-row: 1;
+}
+#out {
+    grid-column: 1;
+    grid-row: 2;
+  }
