@@ -7,20 +7,18 @@ import { TransactionListComponent } from './Standalone Components/transaction-li
 import { CreditCardAddComponent } from './Standalone Components/credit-card-add/credit-card-add.component';
 import { NavigationBarComponent } from './AppModuleComponents/navigation-bar/navigation-bar.component';
 import { HomeComponent } from './AppModuleComponents/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationBarComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent, NavigationBarComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CreditCardAddComponent,
-    TransactionListComponent
+    TransactionListComponent,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
