@@ -14,7 +14,7 @@ const routes: Routes = [
     loadComponent: () =>
       import(
         './Standalone Components/credit-card-add/credit-card-add.component'
-      ).then((mod) => mod.CreditCardAddComponent),
+      ).then((mod) => mod.CreditCardAddComponent), //Lazy loading
   },
   {
     path: 'transactions/:uid',

@@ -1,14 +1,16 @@
 <!-- <p>credit-card-list works!</p> -->
-<h1>CreditCards</h1>
-<!-- <ul> -->
-<ul *ngFor="let card of cards$ | async; index as i">
-  <!-- <a routerLink="card/{{ card.card_number }}"> -->
-  <p>Creditcard number: {{ card.card_number }}</p>
-  <p>Owner: {{ card.cardholder_name }}</p>
-  <p>Issuer: {{ card.issuer }}</p>
-  <!-- </a> -->
-  <button routerLink="card/{{ card.card_number }}">Details</button>
-  <p>-------------------------------</p>
-  <!-- <button routerLink="{{ i }}">Details</button> -->
-</ul>
+<div id="wrapper">
+  <h1>CreditCards</h1>
+  <!-- <ul> -->
+  <div *ngFor="let card of cards$ | async; index as i">
+    <!-- <a routerLink="card/{{ card.card_number }}"> -->
+    <p>Creditcard number: {{ card.card_number }}</p>
+    <p>Owner: {{ card.cardholder_name }}</p>
+    <p>Issuer: {{ card.issuer }}</p>
+    <!-- </a> -->
+    <button routerLink="card/{{ card.card_number }}">Details</button>
+    <p>-------------------------------</p>
+    <!-- <button routerLink="{{ i }}">Details</button> -->
+  </div>
+</div>
 <!-- </ul> -->

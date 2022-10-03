@@ -14,5 +14,7 @@
   <p>Issuer: {{ card.issuer }}</p>
   <button (click)="deleteCard(card)">Delete card</button>
   <p>Transactions:</p>
-  <p>STILL NEEDS TRANSACTIONS LIST</p>
+  <app-transaction-list
+    [filterNumber]="card.card_number + ''"
+  ></app-transaction-list>
 </div>
