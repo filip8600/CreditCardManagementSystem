@@ -54,8 +54,9 @@ export class CreditCardAddComponent implements OnInit {
     if (this.profileForm.valid.valueOf() == true) {
       console.log(this.profileForm.value);
       var cardInfo = this.profileForm.value;
-      this.creditCardService.postCard(cardInfo as CreditCard).subscribe();
-      this.router.navigateByUrl('/');
+      this.creditCardService
+        .postCard(cardInfo as CreditCard)
+        .subscribe(() => this.router.navigateByUrl('/'));
     }
   }
   get card_number(): FormControl {
