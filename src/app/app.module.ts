@@ -9,6 +9,7 @@ import { HomeComponent } from './AppModuleComponents/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TransactionModule } from './Modules/transaction/transaction.module';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, NavigationBarComponent, HomeComponent],
@@ -17,7 +18,9 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     CreditCardAddComponent,
     TransactionModule,
-    HttpClientModule  ],
+    HttpClientModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

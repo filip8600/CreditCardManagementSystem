@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CreditCard } from './credit-card.service';
 
 @Injectable({
@@ -13,12 +13,6 @@ export class TransactionService {
   constructor(private http: HttpClient) { }
   getTransactions(): Observable<Transaction[]> {
     return this.http.get<Transaction[]>(`${this.rootUrl}`)
-  }
-
-  removeTransaction(transaction_uid:string): Observable<Object> {
-    console.log("launch http")
-
-    return this.http.delete<Observable<object>>(`${this.rootUrl}/${transaction_uid}`);
   }
 }
 
