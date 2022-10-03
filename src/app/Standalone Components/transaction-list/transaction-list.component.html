@@ -1,16 +1,26 @@
 <div>
-<form>
+  <form>
     <label>Filter based on Credit Card number:</label>
-    <input>
-</form>
-<table>
-    <tr><th>Date</th><th>Amount</th><th>Note</th><th>Credit Card</th></tr>
-    <tr *ngFor="let transaction of transactions$ | async ; index as i;">
-        <td>{{ convertDate(transaction.date)}}</td>
-        <td>{{transaction.amount}} {{transaction.currency}}</td>
-        <td> {{transaction.comment}}</td>
-        <td>{{transaction.credit_card.card_number}}</td>
-        <td><button (click)="removeTransaction(transaction.uid!)">Remove</button></td>
+    <input
+      placeholder="123456789"
+      [(ngModel)]="filterNumber"
+      name="filterNumber"
+      (ngModelChange)="onChange()"
+    />
+  </form>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Note</th>
+      <th>Credit Card</th>
     </tr>
-</table>
+    <tr *ngFor="let transaction of transactions$ | async; index as i">
+      <td>{{ convertDate(transaction.date) }}</td>
+      <td>{{ transaction.amount }} {{ transaction.currency }}</td>
+      <td>{{ transaction.comment }}</td>
+      <td>{{ transaction.credit_card.card_number }}</td>
+      <td><button>Remove</button></td>
+    </tr>
+  </table>
 </div>
