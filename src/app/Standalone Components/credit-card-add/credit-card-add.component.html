@@ -1,1 +1,24 @@
 <p>credit-card-add works!</p>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <div class="form-wrapper">
+    <label for="card_number">Card number: </label>
+    <input type="number" formControlName="card_number" />
+    <br />
+    <label for="cardholder_name">Cardholder name: </label>
+    <input type="text" formControlName="cardholder_name" />
+    <br />
+    <label for="csc_code">CsC code: </label>
+    <input type="number" formControlName="csc_code" />
+    <br />
+    <label for="expiration_date_month">Expiration date month: </label>
+    <input type="text" formControlName="expiration_date_month" />
+    <br />
+    <label for="expiration_date_year">Expiration date year: </label>
+    <input type="text" formControlName="expiration_date_year" />
+    <br />
+    <label for="issuer">Issuer: </label>
+    <input type="text" formControlName="issuer" />
+    <hr />
+    <button type="submit">Submit</button>
+  </div>
+</form>

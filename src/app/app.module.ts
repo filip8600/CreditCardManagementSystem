@@ -10,6 +10,8 @@ import { HomeComponent } from './AppModuleComponents/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreditCardListComponent } from './Modules/credit-card/credit-card-list/credit-card-list.component';
 import { CreditCardModule } from './Modules/credit-card/credit-card.module';
+import { ExpirationDatePipePipe } from './expiration-date-pipe.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, NavigationBarComponent, HomeComponent],
@@ -21,6 +23,7 @@ import { CreditCardModule } from './Modules/credit-card/credit-card.module';
     HttpClientModule,
     CreditCardModule,
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -18,6 +18,11 @@ export class CreditCardService {
   postCard(card: CreditCard): Observable<CreditCard> {
     return this.http.post<CreditCard>(`${this.rootUrl}/cards`, card);
   }
+  deleteCard(card: CreditCard): Observable<CreditCard> {
+    return this.http.delete<CreditCard>(
+      `${this.rootUrl}/cards/` + card.card_number
+    );
+  }
 }
 
 export interface CreditCard {
