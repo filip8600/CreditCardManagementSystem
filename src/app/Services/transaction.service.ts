@@ -14,6 +14,11 @@ export class TransactionService {
   getTransactions(): Observable<Transaction[]> {
     return this.http.get<Transaction[]>(`${this.rootUrl}`)
   }
+  removeTransaction(transaction_uid:string): Observable<Object> {
+    console.log("launch http")
+
+    return this.http.delete<Observable<object>>(`${this.rootUrl}/${transaction_uid}`);
+  }
 }
 
 export interface Transaction {

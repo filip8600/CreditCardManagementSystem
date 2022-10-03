@@ -20,7 +20,6 @@
       <td>{{ transaction.amount }} {{ transaction.currency }}</td>
       <td>{{ transaction.comment }}</td>
       <td>{{ transaction.credit_card.card_number }}</td>
-      <td><button>Remove</button></td>
-    </tr>
+      <td><button (click)="removeTransaction(transaction.uid!)">Remove</button></td>    </tr>
   </table>
 </div>
