@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { map, Observable, tap } from 'rxjs';
 import {
   Transaction,
@@ -17,7 +17,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TransactionListComponent implements OnInit {
   transactions$: Observable<Transaction[]>;
-  filterNumber: string;
+  @Input() filterNumber: string;
 
   constructor(
     private ts: TransactionService,
@@ -44,8 +44,10 @@ export class TransactionListComponent implements OnInit {
       )
     );
   }
-  removeTransaction(uid:string):void{
-    this.ts.removeTransaction(uid).subscribe(()=>this.transactions$=this.ts.getTransactions());
+  removeTransaction(uid: string): void {
+    this.ts
+      .removeTransaction(uid)
+      .subscribe(() => (this.transactions$ = this.ts.getTransactions()));
   }
 
   ngOnInit(): void {}

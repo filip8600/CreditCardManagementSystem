@@ -34,7 +34,7 @@ export class CreditCardAddComponent implements OnInit {
     cardholder_name: ['', [Validators.required]],
     csc_code: [
       0,
-      [Validators.required, Validators.max(999), Validators.min(100)],
+      [Validators.required, Validators.maxLength(3), Validators.minLength(3)],
     ],
     expiration_date_month: [
       0,
@@ -72,6 +72,11 @@ export class CreditCardAddComponent implements OnInit {
   }
   get expiration_date_year(): FormControl {
     return this.profileForm.get('expiration_date_year') as FormControl;
+  }
+  OnlyNumbersOnKey(event: any) {
+    return event.charCode == 8 || event.charCode == 0
+      ? null
+      : event.charCode >= 48 && event.charCode <= 57;
   }
 
   ngOnInit(): void {}
