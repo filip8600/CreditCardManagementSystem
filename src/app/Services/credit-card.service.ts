@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -6,7 +8,16 @@ import { Injectable } from '@angular/core';
 export class CreditCardService {
   rootUrl = 'http://localhost:3000';
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
+  getCards(): Observable<CreditCard[]> {
+    return this.http.get<CreditCard[]>(`${this.rootUrl}/cards`);
+  }
+  getCard(card_number: number): Observable<CreditCard> {
+    return this.http.get<CreditCard>(`${this.rootUrl}/cards/` + card_number);
+  }
+  postCard(card: CreditCard): Observable<CreditCard> {
+    return this.http.post<CreditCard>(`${this.rootUrl}/cards`, card);
+  }
 }
 
 export interface CreditCard {
