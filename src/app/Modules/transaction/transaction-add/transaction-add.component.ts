@@ -38,19 +38,23 @@ export class TransactionAddComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    let nc: CreditCard = this.profileForm.value.credit_card!;
+    console.log(this.profileForm.value);
 
-    let trans: Transaction = {
-      amount: this.profileForm.value.amount!,
-      currency: this.profileForm.value.currency!,
-      credit_card: nc,
-      date: Number(Date.parse(this.profileForm.value.date!)),
-      comment: this.profileForm.value.comment ?? '',
-    };
+    if (this.profileForm.valid) {
+      let nc: CreditCard = this.profileForm.value.credit_card!;
 
-    this.ts.addTransaction(trans).subscribe(() => {
-      alert('Transaction added');
-    });
+      let trans: Transaction = {
+        amount: this.profileForm.value.amount!,
+        currency: this.profileForm.value.currency!,
+        credit_card: nc,
+        date: Number(Date.parse(this.profileForm.value.date!)),
+        comment: this.profileForm.value.comment ?? '',
+      };
+
+      this.ts.addTransaction(trans).subscribe(() => {
+        alert('Transaction added');
+      });
+    }
   }
 
   get amount() {
