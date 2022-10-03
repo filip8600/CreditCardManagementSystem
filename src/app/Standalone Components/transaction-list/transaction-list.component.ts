@@ -12,9 +12,11 @@ import { Transaction, TransactionService } from 'src/app/Services/transaction.se
 })
 export class TransactionListComponent implements OnInit {
   transactions$: Observable<Transaction[]>
+  filterNumber:string
 
   constructor(private ts:TransactionService) { 
-    this.transactions$=ts.getTransactions();
+    this.filterNumber=''
+    this.transactions$=ts.getTransactions()//.map(transaction => transaction.filter(tx=> transaction.CreditCard.card_number+'').indexOf(this.filterNumber)>-1);
   }
   convertDate(date:number):string{
     var date1=new Date(date);

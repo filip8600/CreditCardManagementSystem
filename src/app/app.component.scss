@@ -1,6 +1,7 @@
 #wrapper {
   display: grid;
   grid-template-rows:50px 1fr;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 #nav {
   grid-column: 1;
