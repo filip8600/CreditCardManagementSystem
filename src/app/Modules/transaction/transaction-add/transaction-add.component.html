@@ -1,25 +1,34 @@
 <!-- <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
   <div class="form-wrapper">
     <label for="amount">Amount: </label>
-    <input type="number" formControlName="card_number" />
     <br />
-    <label for="currency">Currency: </label>
-    <input type="text" formControlName="cardholder_name" />
+    <input type="number" formControlName="amount" />
     <br />
-    <label for="date">Date: </label>
-    <input type="number" formControlName="csc_code" />
-    <br />
-    <label for="credit_card">Credit card: </label>
-    <select formControlName="credit_card" [compareWidt]="compare">
-      <option [ngValue]="" disabled selected>Credit card</option>
-      <option
-        *ngFor="let credit_card of credit_cards | async"
-        [ngValue]="credit_card"
-      >
-        {{ credit_card.number }}
+    <select formControlName="currency">
+      <option [ngValue]="" disabled selected>Currency</option>
+      <option *ngFor="let currency of currencys" [ngValue]="currency">
+        {{ currency }}
       </option>
     </select>
-    <hr />
+    <br />
+    <select formControlName="credit_card">
+      <option [ngValue]="" disabled selected>Credit card</option>
+      <option
+        *ngFor="let credit_card of credit_cards$ | async"
+        [ngValue]="credit_card"
+      >
+        {{ credit_card.card_number }}
+      </option>
+    </select>
+    <br />
+    <label for="date">Date: </label>
+    <br />
+    <input type="date" formControlName="date" />
+    <br />
+    <label for="comment">Comment: </label>
+    <br />
+    <textarea formControlName="comment"></textarea>
+    <br />
     <button type="submit">Submit</button>
   </div>
 </form> -->
