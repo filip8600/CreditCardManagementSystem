@@ -23,6 +23,10 @@ export class TransactionListComponent implements OnInit {
     return date1.toDateString()
   }
 
+  removeTransaction(uid:string):void{
+    this.ts.removeTransaction(uid).subscribe(()=>this.transactions$=this.ts.getTransactions());
+  }
+
   ngOnInit(): void {
   }
 
