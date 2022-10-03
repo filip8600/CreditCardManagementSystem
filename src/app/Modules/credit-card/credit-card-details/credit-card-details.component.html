@@ -4,10 +4,15 @@
   <p>Cardholder: {{ card.cardholder_name }}</p>
   <p>CsC code: {{ card.csc_code }}</p>
   <p>
-    Expiration Date: {{ card.expiration_date_month }} /
-    {{ card.expiration_date_year }}
+    Expiration Date:
+    {{
+      card.expiration_date_month | expirationDatePipe: card.expiration_date_year
+    }}
+    <!-- {{ card.expiration_date_month }} / -->
+    <!-- {{ card.expiration_date_year }} -->
   </p>
   <p>Issuer: {{ card.issuer }}</p>
+  <button (click)="deleteCard(card)">Delete card</button>
   <p>Transactions:</p>
   <p>STILL NEEDS TRANSACTIONS LIST</p>
 </div>

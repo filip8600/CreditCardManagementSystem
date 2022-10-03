@@ -1,1 +1,48 @@
 <p>credit-card-add works!</p>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <div class="form-wrapper">
+    <label for="card_number">Card number: </label>
+    <input type="number" formControlName="card_number" />
+    <div class="errorMsg" *ngIf="card_number.invalid && card_number.touched">
+      Number needs to be between 7 and 16 digits.
+    </div>
+    <br />
+    <label for="cardholder_name">Cardholder name: </label>
+    <input type="text" formControlName="cardholder_name" />
+    <div
+      class="errorMsg"
+      *ngIf="cardholder_name.invalid && cardholder_name.touched"
+    >
+      Required
+    </div>
+    <br />
+    <label for="csc_code">CsC code: </label>
+    <input type="number" formControlName="csc_code" />
+    <div class="errorMsg" *ngIf="csc_code.invalid && csc_code.touched">
+      Needs to be 3 digits long (100-999)
+    </div>
+    <br />
+    <label for="expiration_date_month">Expiration date month: </label>
+    <input type="number" formControlName="expiration_date_month" />
+    <div
+      class="errorMsg"
+      *ngIf="expiration_date_month.invalid && expiration_date_month.touched"
+    >
+      Must be between 1-12
+    </div>
+    <br />
+    <label for="expiration_date_year">Expiration date year: </label>
+    <input type="number" formControlName="expiration_date_year" />
+    <div
+      class="errorMsg"
+      *ngIf="expiration_date_year.invalid && expiration_date_year.touched"
+    >
+      Required
+    </div>
+    <br />
+    <label for="issuer">Issuer: </label>
+    <input type="text" formControlName="issuer" />
+    <hr />
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  </div>
+</form>

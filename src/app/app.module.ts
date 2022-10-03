@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 
 import { CreditCardListComponent } from './Modules/credit-card/credit-card-list/credit-card-list.component';
 import { CreditCardModule } from './Modules/credit-card/credit-card.module';
+import { ExpirationDatePipePipe } from './expiration-date-pipe.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, NavigationBarComponent, HomeComponent],
@@ -27,6 +29,7 @@ import { CreditCardModule } from './Modules/credit-card/credit-card.module';
     CreditCardModule,
 
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent],
 })
