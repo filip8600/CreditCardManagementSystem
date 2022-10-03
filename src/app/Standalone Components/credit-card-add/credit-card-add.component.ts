@@ -8,6 +8,7 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
   CreditCardService,
   CreditCard,
@@ -45,7 +46,8 @@ export class CreditCardAddComponent implements OnInit {
 
   constructor(
     private formbuilder: FormBuilder,
-    private creditCardService: CreditCardService
+    private creditCardService: CreditCardService,
+    private router: Router
   ) {}
 
   onSubmit() {
@@ -53,6 +55,7 @@ export class CreditCardAddComponent implements OnInit {
       console.log(this.profileForm.value);
       var cardInfo = this.profileForm.value;
       this.creditCardService.postCard(cardInfo as CreditCard).subscribe();
+      this.router.navigateByUrl('/');
     }
   }
   get card_number(): FormControl {
