@@ -53,6 +53,7 @@ export class TransactionAddComponent implements OnInit {
 
       this.ts.addTransaction(trans).subscribe(() => {
         alert('Transaction added');
+        this.profileForm.reset();
       });
     }
   }
